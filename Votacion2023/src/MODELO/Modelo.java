@@ -84,25 +84,29 @@ public class Modelo {
 			listaDatos.add(new Datos(ciudad, habitantes1825,habitantes2640,habitantes4165,habitantes66));
 			
 			for(int i=0; i<habitantes1825; i++) {
-				int aleatorio=(int)(Math.random()*100);
-				System.out.println(aleatorio);
+				int edad1825=(int)(Math.random()*(25 - 18)) + 18;
+				int aleatorio1825=(int)(Math.random()*100);
+				System.out.println(ciudad+"("+edad1825+")--"+aleatorio1825);
 			}
 			System.out.println("---------------------------------");
 			for(int i=0; i<habitantes2640; i++) {
-				int aleatorio=(int)(Math.random()*100);
-				System.out.println(aleatorio);
+				int edad2640=(int)(Math.random()*(40 - 26)) + 26;
+				int aleatorio2640=(int)(Math.random()*100);
+				System.out.println(ciudad+"("+edad2640+")--"+aleatorio2640);
 			}
 			System.out.println("---------------------------------");
 			for(int i=0; i<habitantes4165; i++) {
-				int aleatorio=(int)(Math.random()*100);
-				System.out.println(aleatorio);
+				int aleatorio4165=(int)(Math.random()*100);
+				int edad4165=(int)(Math.random()*(65 - 41)) + 41;
+				System.out.println(ciudad+"("+edad4165+")--"+aleatorio4165);
 			}
 			System.out.println("---------------------------------");
 			for(int i=0; i<habitantes66; i++) {
-				int aleatorio=(int)(Math.random()*100);
-				System.out.println(aleatorio);
+				int aleatorio66=(int)(Math.random()*100);
+				int edad66=(int)(Math.random()*(110 - 66)) + 66;
+				System.out.println(ciudad+"("+edad66+")--"+aleatorio66);
 			}		
-    }
+		}
 		return listaDatos;    
     }
 }
