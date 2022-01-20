@@ -83,32 +83,26 @@ public class Modelo {
 			
 			listaDatos.add(new Datos(ciudad, habitantes1825,habitantes2640,habitantes4165,habitantes66));
 			
-			for(int i=0; i<listaDatos.size(); i++) {
-				
-				for(int j=0; j<habitantes1825; j++) {
-					int aleatorio1825=(int)(Math.random()*100);
-					
-				}
-				
-				for(int j=0; j<habitantes2640; j++) {
-					int aleatorio2640=(int)(Math.random()*100);
-					
-				}
-				
-				for(int j=0; j<habitantes4165; j++) {
-					int aleatorio4165=(int)(Math.random()*100);
-					
-				}
-				
-				for(int j=0; j<habitantes66; j++) {
-					int aleatorio66=(int)(Math.random()*100);
-					
-				}
-				
+			for(int i=0; i<habitantes1825; i++) {
+				int aleatorio=(int)(Math.random()*100);
+				System.out.println(aleatorio);
 			}
-							
-		}
-		
-		return listaDatos;
+			System.out.println("---------------------------------");
+			for(int i=0; i<habitantes2640; i++) {
+				int aleatorio=(int)(Math.random()*100);
+				System.out.println(aleatorio);
+			}
+			System.out.println("---------------------------------");
+			for(int i=0; i<habitantes4165; i++) {
+				int aleatorio=(int)(Math.random()*100);
+				System.out.println(aleatorio);
+			}
+			System.out.println("---------------------------------");
+			for(int i=0; i<habitantes66; i++) {
+				int aleatorio=(int)(Math.random()*100);
+				System.out.println(aleatorio);
+			}		
+    }
+		return listaDatos;    
     }
 }
