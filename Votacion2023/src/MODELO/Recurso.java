@@ -4,7 +4,7 @@ public class Recurso {
 	
 private static Recurso instancia;
 	
-	private boolean partido=false;
+	private boolean partido;
 	private Object object=new Object();
 
 	public Recurso() {
@@ -27,31 +27,31 @@ private static Recurso instancia;
 	public Boolean calcularVoto(int voto, int edadCiudadano) {
 		synchronized (object) {
 			if(edadCiudadano>=18 && edadCiudadano<=25) { 
-				if(voto<=0 && voto<=30) { partido=true; }
-				if(voto<=31 && voto<=50) { partido=true; }
-				if(voto<=51 && voto<=70) { partido=true; }
-				if(voto<=71 && voto<=100) { partido=true; }
+				if(voto>=0 && voto<=30) { partido=true; }
+				if(voto>=31 && voto<=50) { partido=true; }
+				if(voto>=51 && voto<=70) { partido=true; }
+				if(voto>=71 && voto<=100) { partido=true; }
 			}
 			if(edadCiudadano>=26 && edadCiudadano<=40) { 
-				if(voto<=0 && voto<=20) { partido=true; }
-				if(voto<=21 && voto<=55) { partido=true; }
-				if(voto<=56 && voto<=85) { partido=true; }
-				if(voto<=86 && voto<=100) { partido=true; }
+				if(voto>=0 && voto<=20) { partido=true; }
+				if(voto>=21 && voto<=55) { partido=true; }
+				if(voto>=56 && voto<=85) { partido=true; }
+				if(voto>=86 && voto<=100) { partido=true; }
 			}
 			if(edadCiudadano>=41 && edadCiudadano<=65) { 
-				if(voto<=0 && voto<=10) { partido=true; }
-				if(voto<=11 && voto<=55) { partido=true; }
-				if(voto<=56 && voto<=90) { partido=true; }
-				if(voto<=91 && voto<=100) { partido=true; }
+				if(voto>=0 && voto<=10) { partido=true; }
+				if(voto>=11 && voto<=55) { partido=true; }
+				if(voto>=56 && voto<=90) { partido=true; }
+				if(voto>=91 && voto<=100) { partido=true; }
 			}
 			if(edadCiudadano>=66 && edadCiudadano<=110) { 
-				if(voto<=0 && voto<=25) { partido=true; }
-				if(voto<=26 && voto<=60) { partido=true; }
-				if(voto<=61 && voto<=95) { partido=true; }
-				if(voto<=96 && voto<=100) { partido=true; }
-			}	
+				if(voto>=0 && voto<=25) { partido=true; }
+				if(voto>=26 && voto<=60) { partido=true; }
+				if(voto>=61 && voto<=95) { partido=true; }
+				if(voto>=96 && voto<=100) { partido=true; }
+			}
+			return partido;
 		}
-		return partido;
 	}
 	
 	public boolean votacion() { return partido; }

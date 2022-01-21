@@ -41,16 +41,12 @@ public class Modelo {
             listar("La Rioja", sessionFactory);
             listar("Ceuta", sessionFactory);
             listar("Melilla", sessionFactory);
-            
-            for (int i = 0; i < listaDatos.size(); i++) {
-            	System.out.println(listaDatos.get(i));
-			}
 
             sessionFactory.getCurrentSession().getTransaction().commit();
+            
         } catch (Exception e) {
         	e.printStackTrace();
             sessionFactory.getCurrentSession().getTransaction().rollback();
-            throw e;
             }finally {
             	if (sessionFactory != null) {
                     sessionFactory.close();
@@ -59,7 +55,7 @@ public class Modelo {
     }
     
     @SuppressWarnings("unchecked")
-	public static ArrayList<Datos> listar(String ciudad, SessionFactory s) {
+	public static ArrayList<Datos> listar(String ciudad, SessionFactory s) throws InterruptedException {
     	@SuppressWarnings("rawtypes")
 		Query query3 = s.getCurrentSession().createSQLQuery("SELECT RANGO_18_25, RANGO_26_40, RANGO_41_65,RANGO_MAS_66, TOTAL_HABITANTES FROM PORCENTAJES_RANGOEDAD WHERE NOMBRE_COMUNIDAD=:nombre");		
     	query3.setParameter("nombre", ciudad);       
@@ -86,26 +82,35 @@ public class Modelo {
 			for(int i=0; i<habitantes1825; i++) {
 				int edad1825=(int)(Math.random()*(25 - 18)) + 18;
 				int aleatorio1825=(int)(Math.random()*100);
-				System.out.println(ciudad+"("+edad1825+")--"+aleatorio1825);
+				Hilo rangoEdad1825= new Hilo(edad1825, aleatorio1825, ciudad, s);
+				rangoEdad1825.start();
+				rangoEdad1825.join();
 			}
-			System.out.println("---------------------------------");
+			System.out.println("---------------------------");
 			for(int i=0; i<habitantes2640; i++) {
 				int edad2640=(int)(Math.random()*(40 - 26)) + 26;
 				int aleatorio2640=(int)(Math.random()*100);
-				System.out.println(ciudad+"("+edad2640+")--"+aleatorio2640);
+				Hilo rangoEdad2640= new Hilo(edad2640, aleatorio2640, ciudad, s);
+				rangoEdad2640.start();
+				rangoEdad2640.join();
 			}
-			System.out.println("---------------------------------");
+			System.out.println("---------------------------");
 			for(int i=0; i<habitantes4165; i++) {
 				int aleatorio4165=(int)(Math.random()*100);
 				int edad4165=(int)(Math.random()*(65 - 41)) + 41;
-				System.out.println(ciudad+"("+edad4165+")--"+aleatorio4165);
+				Hilo rangoEdad4165= new Hilo(edad4165, aleatorio4165, ciudad, s);
+				rangoEdad4165.start();
+				rangoEdad4165.join();
 			}
-			System.out.println("---------------------------------");
+			System.out.println("---------------------------");
 			for(int i=0; i<habitantes66; i++) {
 				int aleatorio66=(int)(Math.random()*100);
 				int edad66=(int)(Math.random()*(110 - 66)) + 66;
-				System.out.println(ciudad+"("+edad66+")--"+aleatorio66);
-			}		
+				Hilo rangoEdad66= new Hilo(edad66, aleatorio66, ciudad, s);
+				rangoEdad66.start();
+				rangoEdad66.join();
+			}
+			System.out.println("---------------------------");
 		}
 		return listaDatos;    
     }
