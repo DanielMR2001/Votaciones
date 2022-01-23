@@ -53,7 +53,5 @@ private static Recurso instancia;
 			return partido;
 		}
 	}
-	
 	public boolean votacion() { return partido; }
-
 }

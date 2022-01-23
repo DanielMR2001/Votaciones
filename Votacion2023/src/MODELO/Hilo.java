@@ -1,5 +1,7 @@
 package MODELO;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class Hilo extends Thread{
@@ -44,35 +46,58 @@ public class Hilo extends Thread{
 	@SuppressWarnings("static-access")
 	@Override
 	public void run() {
+		Session session = null;
+		recurso=recurso.getInstancia();
 		try {
-			recurso=recurso.getInstancia();
+			session = sessionFactory.getCurrentSession();
+			session.beginTransaction();	
 			boolean comprobar=recurso.calcularVoto(voto, edad);
 			if(comprobar==true) {
-					if(edad>=18 && edad<=25) { 
-						if(voto>=0 && voto<=30) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PP"); }
-						if(voto>=31 && voto<=50) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PSOE");}
-						if(voto>=51 && voto<=70) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---VOX"); }
-						if(voto>=71 && voto<=100) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---CIUDADANOS");}
-					}
-					if(edad>=26 && edad<=40) { 
-						if(voto>=0 && voto<=20) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PP");}
-						if(voto>=21 && voto<=55) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PSOE");}
-						if(voto>=56 && voto<=85) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---VOX");}
-						if(voto>=86 && voto<=100) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---CIUDADANOS");}
-					}
-					if(edad>=41 && edad<=65) { 
-						if(voto>=0 && voto<=10) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PP");}
-						if(voto>=11 && voto<=55) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PSOE");}
-						if(voto>=56 && voto<=90) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---VOX");}
-						if(voto>=91 && voto<=100) {System.out.println(ciudad+"("+edad+" Años)--"+voto+"---CIUDADANOS");}
-					}
-					if(edad>=66 && edad<=110) { 
-						if(voto>=0 && voto<=25) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PP");}
-						if(voto>=26 && voto<=60) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PSOE");}
-						if(voto>=61 && voto<=95) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---VOX");}
-						if(voto>=96 && voto<=100) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---CIUDADANOS");}
-					}	
-				}
-		}catch(Exception e) { e.printStackTrace(); }
+				agregarVotos(18, 25, 0, 30, 31, 50, 51, 70, 71, 100, session);
+				agregarVotos(26, 40, 0, 20, 21, 55, 56, 85, 86, 100, session);
+				agregarVotos(41, 65, 0, 10, 11, 55, 56, 90, 91, 100, session);
+				agregarVotos(66, 110, 0, 25, 26, 60, 61, 95, 96, 100, session);				
+			}
+				this.sleep(100);			
+		}catch(HibernateException | InterruptedException e) { e.printStackTrace();
+			if (null != session) { session.getTransaction().rollback(); }
+		} finally { if (null != session) { session.close(); } }
+	}
+	
+	public void agregarVotos(int edad1, int edad2, int voto1, int voto2, int voto3, int voto4, int voto5, int voto6, int voto7, int voto8, Session session){
+		if(edad>=edad1 && edad<=edad2) { 				
+			if(voto>=voto1 && voto<=voto2) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PP"); 										
+				Ciudadano ciudadano1 =new Ciudadano();
+				ciudadano1.setComunidad(ciudad);
+				ciudadano1.setEdad(edad);
+				ciudadano1.setPartido("PP");
+				session.saveOrUpdate(ciudadano1);	           
+				session.getTransaction().commit();		
+			}
+			if(voto>=voto3 && voto<=voto4) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---PSOE");						
+				Ciudadano ciudadano2 =new Ciudadano();
+				ciudadano2.setComunidad(ciudad);
+				ciudadano2.setEdad(edad);
+				ciudadano2.setPartido("PSOE");
+				session.saveOrUpdate(ciudadano2);	           
+				session.getTransaction().commit();	
+			}
+			if(voto>=voto5 && voto<=voto6) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---VOX"); 
+				Ciudadano ciudadano3 =new Ciudadano();
+				ciudadano3.setComunidad(ciudad);
+				ciudadano3.setEdad(edad);
+				ciudadano3.setPartido("VOX");
+				session.saveOrUpdate(ciudadano3);	           
+				session.getTransaction().commit();	
+			}
+			if(voto>=voto7 && voto<=voto8) { System.out.println(ciudad+"("+edad+" Años)--"+voto+"---CIUDADANOS");
+				Ciudadano ciudadano4 =new Ciudadano();
+				ciudadano4.setComunidad(ciudad);
+				ciudadano4.setEdad(edad);
+				ciudadano4.setPartido("CIUDADANOS");
+				session.saveOrUpdate(ciudadano4);	           
+				session.getTransaction().commit();	
+			}
+		}
 	}
 }
