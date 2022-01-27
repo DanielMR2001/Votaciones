@@ -10,7 +10,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 public class Modelo {	
-    public static void main (String [] args) throws Exception {
+	
+	public void insertar() throws Exception{
         SessionFactory sessionFactory = null;
         try {
             Configuration configuration = new Configuration();
@@ -88,7 +89,7 @@ public class Modelo {
 		}
     }    
     
-    public static BigInteger contarVotoGeneral(SessionFactory s, String partido) {
+    public BigInteger contarVotoGeneral(SessionFactory s, String partido) {
     	BigInteger votos;
     	Session session=null;
     	try {	
@@ -103,7 +104,7 @@ public class Modelo {
     	return votos;
     }
     
-    public static BigInteger contarVotoPorRango(SessionFactory s, String partido, int edad1, int edad2) {
+    public BigInteger contarVotoPorRango(SessionFactory s, String partido, int edad1, int edad2) {
     	BigInteger votos;
     	Session session=null;
     	try {	
@@ -120,7 +121,7 @@ public class Modelo {
     	return votos;
     }
     
-    public static BigInteger contarVotoPorComunidad(SessionFactory s, String partido, String comunidad) {
+    public BigInteger contarVotoPorComunidad(SessionFactory s, String partido, String comunidad) {
     	BigInteger votos;
     	Session session=null;
     	try {	
