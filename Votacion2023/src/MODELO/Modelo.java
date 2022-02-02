@@ -2,7 +2,6 @@ package MODELO;
 
 import java.math.BigInteger;
 import java.util.List;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -89,24 +88,28 @@ public class Modelo {
 		}
     }    
     
-    public BigInteger contarVotoGeneral(SessionFactory s, String partido) {
+    public int contarVotoGeneral(SessionFactory s, String partido) {
     	BigInteger votos;
     	Session session=null;
+    	int votosInt=0;
     	try {	
     		session = s.getCurrentSession();
 			session.beginTransaction();   
 			Query query = session.createSQLQuery("select count(*) as VOTOS from CIUDADANO  where PARTIDO =:partidoo");
 			query.setParameter("partidoo", partido);
 			votos=(BigInteger) query.getSingleResult();
+			String votosString=String.valueOf(votos);
+			votosInt=Integer.parseInt(votosString);
     	}catch(HibernateException e) { e.printStackTrace();
     			if (null != session) { session.getTransaction().rollback(); } throw e;
     		} finally { if (null != session) { session.close(); } }
-    	return votos;
+    	return votosInt;
     }
     
-    public BigInteger contarVotoPorRango(SessionFactory s, String partido, int edad1, int edad2) {
+    public int contarVotoPorRango(SessionFactory s, String partido, int edad1, int edad2) {
     	BigInteger votos;
     	Session session=null;
+    	int votosInt=0;
     	try {	
     		session = s.getCurrentSession();
 			session.beginTransaction();   
@@ -115,15 +118,18 @@ public class Modelo {
 			query.setParameter("edaad1", edad1);
 			query.setParameter("edaad2", edad2);
 			votos=(BigInteger) query.getSingleResult();
+			String votosString=String.valueOf(votos);
+			votosInt=Integer.parseInt(votosString);
     	}catch(HibernateException e) { e.printStackTrace();
     			if (null != session) { session.getTransaction().rollback(); } throw e;
     		} finally { if (null != session) { session.close(); } }
-    	return votos;
+    	return votosInt;
     }
     
-    public BigInteger contarVotoPorComunidad(SessionFactory s, String partido, String comunidad) {
+    public int contarVotoPorComunidad(SessionFactory s, String partido, String comunidad) {
     	BigInteger votos;
     	Session session=null;
+    	int votosInt=0;
     	try {	
     		session = s.getCurrentSession();
 			session.beginTransaction();   
@@ -131,9 +137,11 @@ public class Modelo {
 			query.setParameter("partidoo", partido);
 			query.setParameter("comunidaad", comunidad);
 			votos=(BigInteger) query.getSingleResult();
+			String votosString=String.valueOf(votos);
+			votosInt=Integer.parseInt(votosString);
     	}catch(HibernateException e) { e.printStackTrace();
     			if (null != session) { session.getTransaction().rollback(); } throw e;
     		} finally { if (null != session) { session.close(); } }
-    	return votos;
+    	return votosInt;
     }
 }

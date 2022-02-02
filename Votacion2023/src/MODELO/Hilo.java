@@ -58,7 +58,7 @@ public class Hilo extends Thread{
 				agregarVotos(41, 65, 0, 10, 11, 55, 56, 90, 91, 100, session);
 				agregarVotos(66, 110, 0, 25, 26, 60, 61, 95, 96, 100, session);				
 			}
-				this.sleep(100);			
+				this.sleep(20);			
 		}catch(HibernateException | InterruptedException e) { e.printStackTrace();
 			if (null != session) { session.getTransaction().rollback(); }
 		} finally { if (null != session) { session.close(); } }

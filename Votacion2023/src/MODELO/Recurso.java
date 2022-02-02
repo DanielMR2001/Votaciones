@@ -21,7 +21,7 @@ private static Recurso instancia;
 		if(instancia==null) {
 			createInstance();
 		}
-	return instancia;
+	return  instancia;
 	}
 	
 	public Boolean calcularVoto(int voto, int edadCiudadano) {

@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigInteger;
 import java.sql.Array;
-
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -27,76 +29,85 @@ public class Controlador implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
     	Modelo modelo=new Modelo();
-    		
-		vista.btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try { 
-					modelo.insertar(); 
-					vista.comboBox.setVisible(true);
-				} catch (Exception e1) { e1.printStackTrace(); }
-					vista.btnNewButton_1.setVisible(false);
-					
-				}
-			});
+    	SessionFactory sessionFactory = null;
+	   	Configuration configuration = new Configuration();
+	   	configuration.configure("hibernate.cfg.xml");	   	
+	   	sessionFactory = configuration.buildSessionFactory();
+    	if(e.getSource()== vista.btnNewButton_1) {
+    		try { 
+				modelo.insertar(); 
+				vista.comboBox.setVisible(true);
+			} catch (Exception e1) { e1.printStackTrace(); }
+				vista.btnNewButton_1.setVisible(false);			
+			}
+    	
+		vista.lblNewLabel_3_4.setVisible(true);
+		
+		String eleccion = (String) vista.comboBox.getSelectedItem();
+			if (eleccion.equals("Rango De Edad")) {	
+				vista.btnNewButton.setVisible(true);
+				if(e.getSource()== vista.btnNewButton) {
+					   	int PP1825=modelo.contarVotoPorRango(sessionFactory, "PP", 18, 25);
+					   	int PSOE1825=modelo.contarVotoPorRango(sessionFactory, "PSOE", 18, 25);						
+					   	int VOX1825=modelo.contarVotoPorRango(sessionFactory, "VOX", 18, 25);					
+					   	int CIUDADANO1825=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 18, 25);									
+					   	sacarGanadorPorRango(PP1825, PSOE1825, VOX1825, CIUDADANO1825, vista.lblNewLabel_3, vista.textPane_4,"18-25");
+						vista.lblNewLabel_3_4.setVisible(true);
+						vista.lblNewLabel_3_4.setIcon(new ImageIcon("votar.png"));
+						vista.textPane.setText("\n                     RANGO 18-25 AÑOS\n"
+												+"PP:"+PP1825+" - PSOE:"+PSOE1825+" - VOX:"+VOX1825+" - CIUDADANOS:"+CIUDADANO1825);						
+						int PP2640=modelo.contarVotoPorRango(sessionFactory, "PP", 26, 40);						
+						int PSOE2640=modelo.contarVotoPorRango(sessionFactory, "PSOE", 26, 40);					
+						int VOX2640=modelo.contarVotoPorRango(sessionFactory, "VOX", 26, 40);						
+						int CIUDADANO2640=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 26, 40);			
+						sacarGanadorPorRango(PP2640, PSOE2640, VOX2640, CIUDADANO2640, vista.lblNewLabel_3_1, vista.textPane_4_1,"26-40");
+						vista.lblNewLabel_3_4_1.setVisible(true);
+						vista.lblNewLabel_3_4_1.setIcon(new ImageIcon("votar.png"));
+						vista.textPane_1.setText("\n                     RANGO 26-40 AÑOS\n"
+												+"PP:"+PP2640+" - PSOE:"+PSOE2640+" - VOX:"+VOX2640+" - CIUDADANOS:"+CIUDADANO2640);		
+						int PP4165=modelo.contarVotoPorRango(sessionFactory, "PP", 41, 65);
+						int PSOE4165=modelo.contarVotoPorRango(sessionFactory, "PSOE", 41, 65);						
+						int VOX4165=modelo.contarVotoPorRango(sessionFactory, "VOX", 41, 65);					
+						int CIUDADANO4165=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 41, 65);						
+						sacarGanadorPorRango(PP4165, PSOE4165, VOX4165, CIUDADANO4165, vista.lblNewLabel_3_2, vista.textPane_4_2,"41-65");
+						vista.lblNewLabel_3_4_2.setVisible(true);
+						vista.lblNewLabel_3_4_2.setIcon(new ImageIcon("votar.png"));
+						vista.textPane_2.setText("\n                     RANGO 41-65 AÑOS\n"
+												+"PP:"+PP4165+" - PSOE:"+PSOE4165+" - VOX:"+VOX4165+" - CIUDADANOS:"+CIUDADANO4165);										
+						int PP66=modelo.contarVotoPorRango(sessionFactory, "PP", 66, 110);						
+						int PSOE66=modelo.contarVotoPorRango(sessionFactory, "PSOE", 66, 110);					
+						int VOX66=modelo.contarVotoPorRango(sessionFactory, "VOX", 66, 110);					
+						int CIUDADANO66=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 66, 110);
+						sacarGanadorPorRango(1, 1, 1, 1, vista.lblNewLabel_3_3, vista.textPane_4_3,"+66");
+						vista.lblNewLabel_3_4_3.setVisible(true);
+						vista.lblNewLabel_3_4_3.setIcon(new ImageIcon("votar.png"));
+						vista.textPane_3.setText("\n                      RANGO +66 AÑOS\n"
+												+"PP:"+PP66+" - PSOE:"+PSOE66+" - VOX:"+VOX66+" - CIUDADANOS:"+CIUDADANO66);			
+						}				
+			}else if(eleccion.equals("Comundad Autonoma")) {
+				vista.btnNewButton.setVisible(true);
+				
+			}		 
+	}
+	
+		public void sacarGanadorPorRango(int pp, int psoe, int vox, int ciudadano, JLabel label, JTextPane texto,String rango) {
+			if((pp>psoe)&&(pp>vox)&&(pp>ciudadano)) { label.setIcon(new ImageIcon("PP.png")); texto.setText("\n   Ha ganado el PP\n   en el Rango de "+rango+" Años");}
+			if((psoe>pp)&&(psoe>vox)&&(psoe>ciudadano)) { label.setIcon(new ImageIcon("psoe.png")); texto.setText("\n   Ha ganado el PSOE\n   en el Rango de "+rango+" Años");}
+			if((vox>psoe)&&(vox>pp)&&(vox>ciudadano)) { label.setIcon(new ImageIcon("vox.png")); texto.setText("\n   Ha ganado VOX\n   en el Rango de "+rango+" Años");}
+			if((ciudadano>psoe)&&(ciudadano>pp)&&(ciudadano>vox)) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años");}
+			 
+			if((pp==psoe)&&((pp>vox)&&(pp>ciudadano))) { label.setIcon(new ImageIcon("PP.png")); texto.setText("\n   Ha ganado el PP\n   en el Rango de "+rango+" Años\n   Coalición con PSOE");}
+			if((pp==ciudadano)&&((ciudadano>psoe)&&(ciudadano>vox))) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con PP");}
+			if((vox==psoe)&&((vox>pp)&&(vox>ciudadano))) { label.setIcon(new ImageIcon("vox.png")); texto.setText("\n   Ha ganado VOX\n   en el Rango de "+rango+" Años\n   Coalición con PSOE");}
+			if((vox==pp)&&((vox>psoe)&&(vox>ciudadano))) { label.setIcon(new ImageIcon("vox.png")); texto.setText("\n   Ha ganado VOX\n   en el Rango de "+rango+" Años\n   Coalición con PP");}
+			if((psoe==ciudadano)&&((ciudadano>vox)&&(ciudadano>pp))) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con PSOE");}
+			if((vox==ciudadano)&&((ciudadano>pp)&&(ciudadano>psoe))) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con VOX");}
 
-			String eleccion = (String) vista.comboBox.getSelectedItem();
-				if (eleccion.equals("Rango De Edad")) {	
-					vista.btnNewButton.setVisible(true);
-					vista.btnNewButton.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							SessionFactory sessionFactory = null;
-					    	Configuration configuration = new Configuration();
-					    	configuration.configure("hibernate.cfg.xml");
-					    	sessionFactory = configuration.buildSessionFactory();
-					    	sessionFactory = configuration.buildSessionFactory();
-							BigInteger PP1825=modelo.contarVotoPorRango(sessionFactory, "PP", 18, 25);
-							BigInteger PP2640=modelo.contarVotoPorRango(sessionFactory, "PP", 26, 40);
-							BigInteger PP4165=modelo.contarVotoPorRango(sessionFactory, "PP", 41, 65);
-							BigInteger PP66=modelo.contarVotoPorRango(sessionFactory, "PP", 66, 110);
-							BigInteger vectorPP[]= {PP1825,PP2640,PP4165,PP66};
-							BigInteger PSOE1825=modelo.contarVotoPorRango(sessionFactory, "PSOE", 18, 25);
-							BigInteger PSOE2640=modelo.contarVotoPorRango(sessionFactory, "PSOE", 26, 40);
-							BigInteger PSOE4165=modelo.contarVotoPorRango(sessionFactory, "PSOE", 41, 65);
-							BigInteger PSOE66=modelo.contarVotoPorRango(sessionFactory, "PSOE", 66, 110);
-							BigInteger vectorPSOE[]= {PSOE1825,PSOE2640,PSOE4165,PSOE66};
-							BigInteger VOX1825=modelo.contarVotoPorRango(sessionFactory, "VOX", 18, 25);
-							BigInteger VOX2640=modelo.contarVotoPorRango(sessionFactory, "VOX", 26, 40);
-							BigInteger VOX4165=modelo.contarVotoPorRango(sessionFactory, "VOX", 41, 65);
-							BigInteger VOX66=modelo.contarVotoPorRango(sessionFactory, "VOX", 66, 110);
-							BigInteger vectorVOX[]= {VOX1825,VOX2640,VOX4165,VOX66};
-							BigInteger CIUDADANO1825=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 18, 25);
-							BigInteger CIUDADANO2640=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 26, 40);
-							BigInteger CIUDADANO4165=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 41, 65);
-							BigInteger CIUDADANO66=modelo.contarVotoPorRango(sessionFactory, "CIUDADANOS", 66, 110);
-							BigInteger vectorCIUDADANO[]= {CIUDADANO1825,CIUDADANO2640,CIUDADANO4165,CIUDADANO66};
-							String s1=String.valueOf(PP1825);
-							String s5=String.valueOf(PSOE1825);
-							String s9=String.valueOf(VOX1825);
-							String s13=String.valueOf(CIUDADANO1825);
-								vista.textPane.setText("RANGO 18-25=="+s1+"(PP)-"+s5+"(PSOE)-"+s9+"(VOX)-"+s13+"(CIUDADANOS)");						
-							String s2=String.valueOf(PP2640);
-							String s6=String.valueOf(PSOE2640);
-							String s10=String.valueOf(VOX2640);
-							String s14=String.valueOf(CIUDADANO2640);
-								vista.textPane_1.setText("RANGO 26-40=="+s2+"(PP)-"+s6+"(PSOE)-"+s10+"(VOX)-"+s14+"(CIUDADANOS)");
-							String s3=String.valueOf(PP4165);
-							String s7=String.valueOf(PSOE4165);
-							String s11=String.valueOf(VOX4165);
-							String s15=String.valueOf(CIUDADANO4165);
-								vista.textPane_2.setText("RANGO 41-65=="+s3+"(PP)-"+s7+"(PSOE)-"+s11+"(VOX)-"+s15+"(CIUDADANOS)");							
-							String s4=String.valueOf(PP66);
-							String s8=String.valueOf(PSOE66);
-							String s12=String.valueOf(VOX66);
-							String s16=String.valueOf(CIUDADANO66);
-								vista.textPane_3.setText("RANGO 66-...=="+s4+"(PP)-"+s8+"(PSOE)-"+s12+"(VOX)-"+s16+"(CIUDADANOS)");
-							vista.textPane_4.setText(eleccion);
-							}			
-						});
-				}
-				
-				
+			if((pp==psoe)&&(pp==vox)&&(pp>ciudadano)) { label.setIcon(new ImageIcon("PP.png")); texto.setText("\n   Ha ganado el PP\n   en el Rango de "+rango+" Años\n   Coalición con PSOE-VOX");}
+			if((pp==psoe)&&(pp==ciudadano)&&(pp>vox)) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con PP-PSOE");}
+			if((psoe==vox)&&(psoe==ciudadano)&&(psoe>pp)) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con VOX-PSOE");}
+			if((pp==vox)&&(ciudadano==vox)&&(pp>psoe)) { label.setIcon(new ImageIcon("vox.png")); texto.setText("\n   Ha ganado VOX\n   en el Rango de "+rango+" Años\nCoalición con PP-CIUDADANOS");}
+			
+			if((pp==psoe)&&(pp==vox)&&(pp==ciudadano)) { label.setIcon(new ImageIcon("Ciudadanos.png")); texto.setText("\n   Ha ganado CIUDADANOS\n   en el Rango de "+rango+" Años\n   Coalición con PP-PSOE-VOX");}
 		}
-	
-	
-	
 }

@@ -28,21 +28,31 @@ public class Vista extends JFrame {
 	public JPanel contentPane;
 	public JPanel panel_2;
 	public JTextPane textPane;
-	public JTextPane textPane_1;
-	public JTextPane textPane_2;
-	public JTextPane textPane_3;
 	public JPanel panel_3;
 	public JPanel panel_4;
 	public JComboBox comboBox;
 	public Panel panel;
 	public JTextPane txtpnResultadoVotacionesPor;
 	public JButton btnNewButton;
-	public JTextPane textPane_4;
     public JLabel lblNewLabel;
     public JLabel lblNewLabel_1;
     public JButton btnNewButton_1;
     public JLabel lblNewLabel_2;
-
+    public JTextPane textPane_2;
+    public JTextPane textPane_1;
+    public JTextPane textPane_3;
+    public JLabel lblNewLabel_3;
+    public JLabel lblNewLabel_3_1;
+    public JLabel lblNewLabel_3_2;
+    public JLabel lblNewLabel_3_3;
+    public JLabel lblNewLabel_3_4;
+    public JLabel lblNewLabel_3_4_1;
+    public JLabel lblNewLabel_3_4_2;
+    public JLabel lblNewLabel_3_4_3;
+    public JTextPane textPane_4;
+    public JTextPane textPane_4_1;
+    public JTextPane textPane_4_2;
+    public JTextPane textPane_4_3;
 
 	/**
 	 * Launch the application.
@@ -87,24 +97,11 @@ public class Vista extends JFrame {
 		panel.add(panel_2);
 		
 		textPane = new JTextPane();
-		textPane.setBounds(92, 59, 376, 65);
+		textPane.setForeground(Color.BLACK);
+		textPane.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane.setEditable(false);
+		textPane.setBounds(211, 72, 338, 102);
 		panel_2.add(textPane);
-		
-		textPane_1 = new JTextPane();
-		textPane_1.setBounds(83, 132, 376, 65);
-		panel_2.add(textPane_1);
-		
-		textPane_2 = new JTextPane();
-		textPane_2.setBounds(83, 187, 376, 65);
-		panel_2.add(textPane_2);
-		
-		textPane_3 = new JTextPane();
-		textPane_3.setBounds(92, 254, 376, 65);
-		panel_2.add(textPane_3);
-		
-		textPane_4 = new JTextPane();
-		textPane_4.setBounds(73, 297, 376, 65);
-		panel_2.add(textPane_4);
 		
 		txtpnResultadoVotacionesPor = new JTextPane();
 		txtpnResultadoVotacionesPor.setBounds(10, 11, 277, 37);
@@ -135,6 +132,87 @@ public class Vista extends JFrame {
 		btnNewButton_1.setBounds(724, 11, 186, 37);
 		panel_2.add(btnNewButton_1);
 		
+		textPane_1 = new JTextPane();
+		textPane_1.setForeground(Color.BLACK);
+		textPane_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_1.setEditable(false);
+		textPane_1.setBounds(211, 185, 338, 102);
+		panel_2.add(textPane_1);
+		
+		textPane_2 = new JTextPane();
+		textPane_2.setForeground(Color.BLACK);
+		textPane_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_2.setEditable(false);
+		textPane_2.setBounds(211, 298, 338, 102);
+		panel_2.add(textPane_2);
+		
+		textPane_3 = new JTextPane();
+		textPane_3.setForeground(Color.BLACK);
+		textPane_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_3.setEditable(false);
+		textPane_3.setBounds(211, 411, 338, 102);
+		panel_2.add(textPane_3);
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setBounds(559, 72, 125, 102);
+		panel_2.add(lblNewLabel_3);
+		
+		lblNewLabel_3_1 = new JLabel("");
+		lblNewLabel_3_1.setBounds(559, 185, 125, 102);
+		panel_2.add(lblNewLabel_3_1);
+		
+		lblNewLabel_3_2 = new JLabel("");
+		lblNewLabel_3_2.setBounds(559, 298, 125, 102);
+		panel_2.add(lblNewLabel_3_2);
+		
+		lblNewLabel_3_3 = new JLabel("");
+		lblNewLabel_3_3.setBounds(559, 411, 125, 102);
+		panel_2.add(lblNewLabel_3_3);
+		
+		lblNewLabel_3_4 = new JLabel("");
+		lblNewLabel_3_4.setBounds(87, 50, 125, 102);
+		panel_2.add(lblNewLabel_3_4);
+		lblNewLabel_3_4.setVisible(false);
+
+		lblNewLabel_3_4_1 = new JLabel("");
+		lblNewLabel_3_4_1.setBounds(87, 163, 125, 102);
+		panel_2.add(lblNewLabel_3_4_1);
+		lblNewLabel_3_4_1.setVisible(false);
+
+		lblNewLabel_3_4_2 = new JLabel("");
+		lblNewLabel_3_4_2.setBounds(87, 276, 125, 102);
+		panel_2.add(lblNewLabel_3_4_2);
+		lblNewLabel_3_4_2.setVisible(false);
+
+		lblNewLabel_3_4_3 = new JLabel("");
+		lblNewLabel_3_4_3.setBounds(87, 389, 125, 102);
+		panel_2.add(lblNewLabel_3_4_3);
+		
+		textPane_4 = new JTextPane();
+		textPane_4.setForeground(Color.BLACK);
+		textPane_4.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_4.setBounds(694, 72, 216, 102);
+		panel_2.add(textPane_4);
+		
+		textPane_4_1 = new JTextPane();
+		textPane_4_1.setForeground(Color.BLACK);
+		textPane_4_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_4_1.setBounds(694, 185, 216, 102);
+		panel_2.add(textPane_4_1);
+		
+		textPane_4_2 = new JTextPane();
+		textPane_4_2.setForeground(Color.BLACK);
+		textPane_4_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_4_2.setBounds(694, 298, 216, 102);
+		panel_2.add(textPane_4_2);
+		
+		textPane_4_3 = new JTextPane();
+		textPane_4_3.setForeground(Color.BLACK);
+		textPane_4_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_4_3.setBounds(694, 411, 216, 102);
+		panel_2.add(textPane_4_3);
+		lblNewLabel_3_4_3.setVisible(false);
+
 		btnNewButton.setVisible(false);
 		
 		panel_3 = new JPanel();
