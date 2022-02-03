@@ -53,6 +53,10 @@ public class Vista extends JFrame {
     public JTextPane textPane_4_1;
     public JTextPane textPane_4_2;
     public JTextPane textPane_4_3;
+    public JButton btnNewButton_2;
+    public JComboBox comboBox_1;
+    public JTextPane txtpnElige;
+    public JComboBox comboBox_2;
 
 	/**
 	 * Launch the application.
@@ -100,13 +104,14 @@ public class Vista extends JFrame {
 		textPane.setForeground(Color.BLACK);
 		textPane.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane.setEditable(false);
-		textPane.setBounds(211, 72, 338, 102);
+		textPane.setBounds(211, 59, 338, 102);
 		panel_2.add(textPane);
 		
 		txtpnResultadoVotacionesPor = new JTextPane();
 		txtpnResultadoVotacionesPor.setBounds(10, 11, 277, 37);
 		panel_2.add(txtpnResultadoVotacionesPor);
 		txtpnResultadoVotacionesPor.setText("Resultado Votaciones Por:");
+		txtpnResultadoVotacionesPor.setVisible(false);
 		txtpnResultadoVotacionesPor.setForeground(Color.BLACK);
 		txtpnResultadoVotacionesPor.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
 		txtpnResultadoVotacionesPor.setEditable(false);
@@ -125,7 +130,8 @@ public class Vista extends JFrame {
 		btnNewButton.setBounds(499, 11, 215, 37);
 		panel_2.add(btnNewButton);
 		btnNewButton.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 22));
-		
+		btnNewButton.setVisible(false);
+
 		btnNewButton_1 = new JButton("Iniciar Votaci\u00F3n");
 		btnNewButton_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 22));
 		btnNewButton_1.setForeground(Color.BLACK);
@@ -212,8 +218,6 @@ public class Vista extends JFrame {
 		textPane_4_3.setBounds(694, 411, 216, 102);
 		panel_2.add(textPane_4_3);
 		lblNewLabel_3_4_3.setVisible(false);
-
-		btnNewButton.setVisible(false);
 		
 		panel_3 = new JPanel();
 		panel_3.setLayout(null);
@@ -222,6 +226,37 @@ public class Vista extends JFrame {
 		panel_3.setBackground(Color.WHITE);
 		panel_3.setBounds(940, 142, 416, 541);
 		panel.add(panel_3);
+		
+		comboBox_1 = new JComboBox();
+		comboBox_1.setForeground(Color.BLACK);
+		comboBox_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "18-25", "26-40", "41-65", "+66"}));
+		comboBox_1.setBounds(152, 11, 99, 37);
+		comboBox_1.setVisible(false);
+		panel_3.add(comboBox_1);
+		
+		txtpnElige = new JTextPane();
+		txtpnElige.setForeground(Color.BLACK);
+		txtpnElige.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		txtpnElige.setText("Elige:");
+		txtpnElige.setBounds(63, 11, 79, 37);
+		txtpnElige.setVisible(false);
+		panel_3.add(txtpnElige);
+		
+		btnNewButton_2 = new JButton("Mostrar");
+		btnNewButton_2.setForeground(Color.BLACK);
+		btnNewButton_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 23));
+		btnNewButton_2.setBounds(293, 11, 113, 37);
+		btnNewButton_2.setVisible(false);
+		panel_3.add(btnNewButton_2);
+		
+		comboBox_2 = new JComboBox();
+		comboBox_2.setForeground(Color.BLACK);
+		comboBox_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 18));
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "Andalucia", "Aragon", "Asturias", "Baleares", "Canarias", "Cantabria", "C. La Mancha", "C. a y Leon", "Catalu\u00F1a", "C. Valenciana", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "Pais Vasco", "La Rioja", "Ceuta", "Melilla"}));
+		comboBox_2.setBounds(148, 12, 135, 37);
+		panel_3.add(comboBox_2);
+		comboBox_2.setVisible(false);
 		
 		panel_4 = new JPanel();
 		panel_4.setBounds(10, 11, 1346, 120);
