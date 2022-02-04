@@ -1,13 +1,17 @@
+package MODELO;
 
 public class ListaComunidades {
 	
 	private int votosPP, votosPSOE, votosVOX, votosCiudadanos;
+	private String comunidad;
 
-	public ListaComunidades(int votosPP, int votosPSOE, int votosVOX, int votosCiudadanos) {
+	public ListaComunidades(int votosPP, int votosPSOE, int votosVOX, int votosCiudadanos, String comunidad) {
+		super();
 		this.votosPP = votosPP;
 		this.votosPSOE = votosPSOE;
 		this.votosVOX = votosVOX;
 		this.votosCiudadanos = votosCiudadanos;
+		this.setComunidad(comunidad);
 	}
 
 	public int getVotosPP() {
@@ -41,10 +45,13 @@ public class ListaComunidades {
 	public void setVotosCiudadanos(int votosCiudadanos) {
 		this.votosCiudadanos = votosCiudadanos;
 	}
+	
+	public String getComunidad() {
+		return comunidad;
+	}
 
-	@Override
-	public String toString() {
-		return "ListaComunidades [votosPP=" + votosPP + ", votosPSOE=" + votosPSOE + ", votosVOX=" + votosVOX + ", votosCiudadanos=" + votosCiudadanos + "]";
+	public void setComunidad(String comunidad) {
+		this.comunidad = comunidad;
 	}
 
 }
