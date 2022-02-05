@@ -17,11 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
+import javax.swing.JProgressBar;
 
 public class Vista extends JFrame {
 
@@ -104,7 +100,21 @@ public class Vista extends JFrame {
     public JLabel lblNewLabel_3_6;
     public JTextPane textPane_4_4;
     public JLabel lblNewLabel_26;
-
+    public JLabel lblNewLabel_27;
+    public JTextPane textPane_6;
+    public JProgressBar progressBar;
+    public JTextPane textPane_7;
+    public JTextPane txtpnPp;
+    public JTextPane txtpnPsoe;
+    public JTextPane textPane_8;
+    public JProgressBar progressBar_1;
+    public JTextPane txtpnVox;
+    public JProgressBar progressBar_2;
+    public JTextPane textPane_9;
+    public JTextPane txtpnCs;
+    public JProgressBar progressBar_3;
+    public JTextPane textPane_10;
+    public JTextPane textPane_11;
 
 	/**
 	 * Launch the application.
@@ -243,24 +253,28 @@ public class Vista extends JFrame {
 		panel_2.add(lblNewLabel_3_4_3);
 		
 		textPane_4 = new JTextPane();
+		textPane_4.setEditable(false);
 		textPane_4.setForeground(Color.BLACK);
 		textPane_4.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_4.setBounds(694, 72, 216, 102);
 		panel_2.add(textPane_4);
 		
 		textPane_4_1 = new JTextPane();
+		textPane_4_1.setEditable(false);
 		textPane_4_1.setForeground(Color.BLACK);
 		textPane_4_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_4_1.setBounds(694, 185, 216, 102);
 		panel_2.add(textPane_4_1);
 		
 		textPane_4_2 = new JTextPane();
+		textPane_4_2.setEditable(false);
 		textPane_4_2.setForeground(Color.BLACK);
 		textPane_4_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_4_2.setBounds(694, 298, 216, 102);
 		panel_2.add(textPane_4_2);
 		
 		textPane_4_3 = new JTextPane();
+		textPane_4_3.setEditable(false);
 		textPane_4_3.setForeground(Color.BLACK);
 		textPane_4_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_4_3.setBounds(694, 411, 216, 102);
@@ -388,108 +402,126 @@ public class Vista extends JFrame {
 		panel_2.add(textPane_5);
 		
 		textPane_5_1 = new JTextPane();
+		textPane_5_1.setEditable(false);
 		textPane_5_1.setForeground(Color.BLACK);
 		textPane_5_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_1.setBounds(60, 114, 392, 24);
 		panel_2.add(textPane_5_1);
 		
 		textPane_5_2 = new JTextPane();
+		textPane_5_2.setEditable(false);
 		textPane_5_2.setForeground(Color.BLACK);
 		textPane_5_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_2.setBounds(60, 163, 392, 24);
 		panel_2.add(textPane_5_2);
 		
 		textPane_5_3 = new JTextPane();
+		textPane_5_3.setEditable(false);
 		textPane_5_3.setForeground(Color.BLACK);
 		textPane_5_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_3.setBounds(60, 212, 392, 24);
 		panel_2.add(textPane_5_3);
 		
 		textPane_5_4 = new JTextPane();
+		textPane_5_4.setEditable(false);
 		textPane_5_4.setForeground(Color.BLACK);
 		textPane_5_4.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_4.setBounds(60, 263, 392, 24);
 		panel_2.add(textPane_5_4);
 		
 		textPane_5_5 = new JTextPane();
+		textPane_5_5.setEditable(false);
 		textPane_5_5.setForeground(Color.BLACK);
 		textPane_5_5.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_5.setBounds(60, 314, 392, 24);
 		panel_2.add(textPane_5_5);
 		
 		textPane_5_6 = new JTextPane();
+		textPane_5_6.setEditable(false);
 		textPane_5_6.setForeground(Color.BLACK);
 		textPane_5_6.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_6.setBounds(60, 365, 392, 24);
 		panel_2.add(textPane_5_6);
 		
 		textPane_5_7 = new JTextPane();
+		textPane_5_7.setEditable(false);
 		textPane_5_7.setForeground(Color.BLACK);
 		textPane_5_7.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_7.setBounds(60, 414, 392, 24);
 		panel_2.add(textPane_5_7);
 		
 		textPane_5_8 = new JTextPane();
+		textPane_5_8.setEditable(false);
 		textPane_5_8.setForeground(Color.BLACK);
 		textPane_5_8.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_8.setBounds(60, 467, 392, 24);
 		panel_2.add(textPane_5_8);
 		
 		textPane_5_9 = new JTextPane();
+		textPane_5_9.setEditable(false);
 		textPane_5_9.setForeground(Color.BLACK);
 		textPane_5_9.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_9.setBounds(60, 511, 392, 24);
 		panel_2.add(textPane_5_9);
 		
 		textPane_5_10 = new JTextPane();
+		textPane_5_10.setEditable(false);
 		textPane_5_10.setForeground(Color.BLACK);
 		textPane_5_10.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_10.setBounds(515, 114, 389, 24);
 		panel_2.add(textPane_5_10);
 		
 		textPane_5_11 = new JTextPane();
+		textPane_5_11.setEditable(false);
 		textPane_5_11.setForeground(Color.BLACK);
 		textPane_5_11.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_11.setBounds(512, 163, 398, 24);
 		panel_2.add(textPane_5_11);
 		
 		textPane_5_12 = new JTextPane();
+		textPane_5_12.setEditable(false);
 		textPane_5_12.setForeground(Color.BLACK);
 		textPane_5_12.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_12.setBounds(512, 212, 392, 24);
 		panel_2.add(textPane_5_12);
 		
 		textPane_5_13 = new JTextPane();
+		textPane_5_13.setEditable(false);
 		textPane_5_13.setForeground(Color.BLACK);
 		textPane_5_13.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_13.setBounds(512, 263, 398, 24);
 		panel_2.add(textPane_5_13);
 		
 		textPane_5_14 = new JTextPane();
+		textPane_5_14.setEditable(false);
 		textPane_5_14.setForeground(Color.BLACK);
 		textPane_5_14.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_14.setBounds(515, 314, 395, 24);
 		panel_2.add(textPane_5_14);
 		
 		textPane_5_15 = new JTextPane();
+		textPane_5_15.setEditable(false);
 		textPane_5_15.setForeground(Color.BLACK);
 		textPane_5_15.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_15.setBounds(515, 365, 395, 24);
 		panel_2.add(textPane_5_15);
 		
 		textPane_5_16 = new JTextPane();
+		textPane_5_16.setEditable(false);
 		textPane_5_16.setForeground(Color.BLACK);
 		textPane_5_16.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_16.setBounds(512, 414, 398, 24);
 		panel_2.add(textPane_5_16);
 		
 		textPane_5_17 = new JTextPane();
+		textPane_5_17.setEditable(false);
 		textPane_5_17.setForeground(Color.BLACK);
 		textPane_5_17.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_17.setBounds(515, 467, 395, 24);
 		panel_2.add(textPane_5_17);
 		
 		textPane_5_18 = new JTextPane();
+		textPane_5_18.setEditable(false);
 		textPane_5_18.setForeground(Color.BLACK);
 		textPane_5_18.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 15));
 		textPane_5_18.setBounds(512, 511, 398, 24);
@@ -510,7 +542,7 @@ public class Vista extends JFrame {
 		lblNewLabel_25 = new JLabel("");
 		lblNewLabel_25.setVisible(false);
 		lblNewLabel_25.setIcon(new ImageIcon("votar.png"));
-		lblNewLabel_25.setBounds(60, 174, 125, 102);
+		lblNewLabel_25.setBounds(60, 107, 125, 102);
 		panel_2.add(lblNewLabel_25);
 		
 		textPane_1_1 = new JTextPane();
@@ -518,19 +550,19 @@ public class Vista extends JFrame {
 		textPane_1_1.setForeground(Color.BLACK);
 		textPane_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_1_1.setEditable(false);
-		textPane_1_1.setBounds(195, 201, 338, 102);
+		textPane_1_1.setBounds(195, 125, 338, 102);
 		panel_2.add(textPane_1_1);
 		
 		lblNewLabel_3_6 = new JLabel("");
 		lblNewLabel_3_6.setVisible(false);
-		lblNewLabel_3_6.setBounds(543, 201, 125, 102);
+		lblNewLabel_3_6.setBounds(543, 125, 125, 102);
 		panel_2.add(lblNewLabel_3_6);
 		
 		textPane_4_4 = new JTextPane();
 		textPane_4_4.setVisible(false);
 		textPane_4_4.setForeground(Color.BLACK);
 		textPane_4_4.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
-		textPane_4_4.setBounds(657, 196, 216, 102);
+		textPane_4_4.setBounds(678, 125, 216, 102);
 		panel_2.add(textPane_4_4);
 		
 		lblNewLabel_26 = new JLabel("");
@@ -538,6 +570,18 @@ public class Vista extends JFrame {
 		lblNewLabel_26.setVisible(false);
 		lblNewLabel_26.setBounds(744, 11, 151, 99);
 		panel_2.add(lblNewLabel_26);
+		
+		lblNewLabel_27 = new JLabel("");
+		lblNewLabel_27.setVisible(false);
+		lblNewLabel_27.setBounds(439, 240, 400, 260);
+		panel_2.add(lblNewLabel_27);
+		
+		textPane_6 = new JTextPane();
+		textPane_6.setForeground(Color.BLACK);
+		textPane_6.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		textPane_6.setVisible(false);
+		textPane_6.setBounds(97, 255, 303, 216);
+		panel_2.add(textPane_6);
 		lblNewLabel_3_4_3.setVisible(false);
 		
 		panel_3 = new JPanel();
@@ -557,6 +601,7 @@ public class Vista extends JFrame {
 		panel_3.add(comboBox_1);
 		
 		txtpnElige = new JTextPane();
+		txtpnElige.setEditable(false);
 		txtpnElige.setForeground(Color.BLACK);
 		txtpnElige.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
 		txtpnElige.setText("Elige:");
@@ -584,11 +629,112 @@ public class Vista extends JFrame {
 		panel_3.add(lblNewLabel_3_5);
 		
 		textPane_4_3_1 = new JTextPane();
+		textPane_4_3_1.setEditable(false);
 		textPane_4_3_1.setVisible(false);
 		textPane_4_3_1.setForeground(Color.BLACK);
 		textPane_4_3_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
 		textPane_4_3_1.setBounds(195, 411, 216, 102);
 		panel_3.add(textPane_4_3_1);
+		
+		progressBar = new JProgressBar();
+		progressBar.setVisible(false);
+		progressBar.setForeground(Color.BLUE);
+		progressBar.setBounds(75, 156, 242, 37);
+		panel_3.add(progressBar);
+		
+		txtpnPp = new JTextPane();
+		txtpnPp.setVisible(false);
+		txtpnPp.setEditable(false);
+		txtpnPp.setForeground(Color.BLACK);
+		txtpnPp.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		txtpnPp.setText("  PP");
+		txtpnPp.setBounds(9, 156, 55, 37);
+		panel_3.add(txtpnPp);
+		
+		textPane_7 = new JTextPane();
+		textPane_7.setForeground(Color.BLACK);
+		textPane_7.setEditable(false);
+		textPane_7.setVisible(false);
+		textPane_7.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		textPane_7.setBounds(327, 160, 79, 33);
+		panel_3.add(textPane_7);
+		
+		txtpnPsoe = new JTextPane();
+		txtpnPsoe.setEditable(false);
+		txtpnPsoe.setVisible(false);
+		txtpnPsoe.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		txtpnPsoe.setForeground(Color.BLACK);
+		txtpnPsoe.setText("PSOE");
+		txtpnPsoe.setBounds(9, 219, 56, 33);
+		panel_3.add(txtpnPsoe);
+		
+		textPane_8 = new JTextPane();
+		textPane_8.setEditable(false);
+		textPane_8.setForeground(Color.BLACK);
+		textPane_8.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		textPane_8.setVisible(false);
+		textPane_8.setBounds(327, 216, 79, 36);
+		panel_3.add(textPane_8);
+		
+		progressBar_1 = new JProgressBar();
+		progressBar_1.setForeground(Color.RED);
+		progressBar_1.setVisible(false);
+		progressBar_1.setBounds(75, 215, 242, 37);
+		panel_3.add(progressBar_1);
+		
+		txtpnVox = new JTextPane();
+		txtpnVox.setEditable(false);
+		txtpnVox.setVisible(false);
+		txtpnVox.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		txtpnVox.setForeground(Color.BLACK);
+		txtpnVox.setText("VOX");
+		txtpnVox.setBounds(10, 274, 56, 37);
+		panel_3.add(txtpnVox);
+		
+		progressBar_2 = new JProgressBar();
+		progressBar_2.setVisible(false);
+		progressBar_2.setForeground(Color.GREEN);
+		progressBar_2.setBounds(75, 274, 242, 37);
+		panel_3.add(progressBar_2);
+		
+		textPane_9 = new JTextPane();
+		textPane_9.setEditable(false);
+		textPane_9.setForeground(Color.BLACK);
+		textPane_9.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		textPane_9.setVisible(false);
+		textPane_9.setBounds(327, 274, 79, 37);
+		panel_3.add(textPane_9);
+		
+		txtpnCs = new JTextPane();
+		txtpnCs.setEditable(false);
+		txtpnCs.setVisible(false);
+		txtpnCs.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		txtpnCs.setForeground(Color.BLACK);
+		txtpnCs.setText("  CS");
+		txtpnCs.setBounds(10, 330, 56, 37);
+		panel_3.add(txtpnCs);
+		
+		progressBar_3 = new JProgressBar();
+		progressBar_3.setForeground(Color.ORANGE);
+		progressBar_3.setVisible(false);
+		progressBar_3.setBounds(75, 330, 242, 37);
+		panel_3.add(progressBar_3);
+		
+		textPane_10 = new JTextPane();
+		textPane_10.setEditable(false);
+		textPane_10.setVisible(false);
+		textPane_10.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
+		textPane_10.setForeground(Color.BLACK);
+		textPane_10.setBounds(327, 330, 79, 37);
+		panel_3.add(textPane_10);
+		
+		textPane_11 = new JTextPane();
+		textPane_11.setEditable(false);
+		textPane_11.setVisible(false);
+		textPane_11.setForeground(Color.BLACK);
+		textPane_11.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 30));
+		textPane_11.setBounds(73, 81, 244, 52);
+		panel_3.add(textPane_11);
 		comboBox_2.setVisible(false);
 		
 		panel_4 = new JPanel();
