@@ -18,6 +18,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JProgressBar;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vista extends JFrame {
 
@@ -633,7 +635,7 @@ public class Vista extends JFrame {
 		textPane_4_3_1.setEditable(false);
 		textPane_4_3_1.setVisible(false);
 		textPane_4_3_1.setForeground(Color.BLACK);
-		textPane_4_3_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 17));
+		textPane_4_3_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 18));
 		textPane_4_3_1.setBounds(195, 411, 216, 102);
 		panel_3.add(textPane_4_3_1);
 		

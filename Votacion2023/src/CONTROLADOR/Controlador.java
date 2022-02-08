@@ -187,10 +187,10 @@ public class Controlador implements ActionListener{
 	    					sacarGanador(PP, PSOE, VOX, CIUDADANOS, vista.lblNewLabel_3_6, vista.textPane_4_4, "España");
 	    					String ganador=sacarGanador(PP, PSOE, VOX, CIUDADANOS,  vista.lblNewLabel_3_6, vista.textPane_4_4, "España");
 	    					vista.lblNewLabel_27.setVisible(true);
-	    					if(ganador.equals("PP")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaPP.png"));vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\n\nEnhorabuena al PP\nGobernará hasta 2027");}
-	    					if(ganador.equals("PSOE")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaPSOE.png"));vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\n\nEnhorabuena al PSOE\nGobernará hasta 2027");}
-	    					if(ganador.equals("CIUDADANOS")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaCIUDADANOS.png")); vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\n\nEnhorabuena a CIUDADANOS\nGobernará hasta 2027");}
-	    					if(ganador.equals("VOX")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaVOX.jpg")); vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\n\nEnhorabuena a VOX\nGobernará hasta 2027");}						
+	    					if(ganador.equals("PP")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaPP.png"));vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\nEl PP ha ganado las Elecciones Generales\nGobernará hasta 2027");}
+	    					if(ganador.equals("PSOE")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaPSOE.png"));vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\nEl PSOE ha ganado las Elecciones Generales\nGobernará hasta 2027");}
+	    					if(ganador.equals("CIUDADANOS")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaCIUDADANOS.png")); vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\nCIUDADANOS ha ganado las Elecciones Generales\nGobernará hasta 2027");}
+	    					if(ganador.equals("VOX")) {vista.lblNewLabel_27.setIcon(new ImageIcon("mapaVOX.jpg")); vista.textPane_6.setVisible(true); vista.textPane_6.setText("\n\nVOX ha ganado las Elecciones Generales\nGobernará hasta 2027");}						
 	    					calcular("          ESPAÑA", PP, PSOE, VOX, CIUDADANOS);
 	    				}
 	    			}            
