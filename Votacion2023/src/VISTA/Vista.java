@@ -617,6 +617,7 @@ public class Vista extends JFrame {
 		panel_3.add(btnNewButton_2);
 		
 		comboBox_2 = new JComboBox();
+		comboBox_2.setMaximumRowCount(20);
 		comboBox_2.setForeground(Color.BLACK);
 		comboBox_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 18));
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "Andalucia", "Aragon", "Asturias", "Baleares", "Canarias", "Cantabria", "C. La Mancha", "C. y Leon", "Catalu\u00F1a", "C. Valenciana", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "Pais Vasco", "La Rioja", "Ceuta", "Melilla"}));
